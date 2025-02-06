@@ -1,13 +1,9 @@
 ## Simple Test Framework
 
-Another lightweight testing utility for node. 
+Another lightweight testing utility for node. *It's a copy of the origin "simple-test-framework" that has been retired from NPM.*
 
 
 ## Introduction
-
-(NOTE: There's an even simpler way to test. Look up "just-test-it" on
-npm.)
-
 
 **Simple Test Framework** (**STF**) is is a library for testing
 functionality of JavaScript code in Node and writing those results out
