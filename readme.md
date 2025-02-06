@@ -1,6 +1,6 @@
 ## Simple Test Framework
 
-Another lightweight testing utility for node. *It's a copy of the origin "simple-test-framework" that has been retired from NPM.*
+Another lightweight testing utility for node. *It's a copy of the origin "simple-test-framework" (created by Neil M. Sheldon) that has been retired from NPM.*
 
 
 ## Introduction
