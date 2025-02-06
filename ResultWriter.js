@@ -7,11 +7,14 @@
 var library = require("./library");
 var util = require('util');
 
-// I'm bringing this one in simply because I don't want to have
-// to write yet more wordwrap code. It breaks the philosophy for this
-// module, but this one works so much better than what I could write
-// in a few hours.
-var wordwrap = require("wordwrap");
+var wordwrap = function (start, stop) {
+  return function (text) {
+    return text.replace(new RegExp(`.{1,${stop - start}}`, 'g'), (line, i) =>
+      (i ? ' '.repeat(start) : '') + line
+    ).trim();
+  };
+};
+
 
 /**
  * A ResultWriter accepts a Test results object and writes it's
@@ -219,7 +222,7 @@ ResultWriter.prototype.writeData = function(message,lineHeader,bold) {
         // first, wrap the lines if necessary
         var lines;
         if (this._output.isTTY) {
-            lines = wordwrap.hard(this._output.columns - lineHeader.length)(message).split(/\n/);
+            lines = wordwrap(this._output.columns - lineHeader.length)(message).split(/\n/);
         } else {
             // Not a TTY, so we don't have to wrap, so
             // just split the lines at delimiters
